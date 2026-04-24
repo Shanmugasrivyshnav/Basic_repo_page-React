@@ -1,5 +1,5 @@
 import { Component } from "react";
-import * as Loader from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 
 import LanguageFilterItem from "../LanguageFilterItem/language";
 import RepositoryItem from "../RepositoryItem/repoitem";
@@ -87,7 +87,7 @@ class GithubPopularRepos extends Component {
 
   loadingView = () => (
     <div data-testid="loader">
-      <Loader color="#0284c7" height={80} type="ThreeDots" width={80} />
+      <ThreeDots color="#0284c7" height={80} width={80} />
     </div>
   );
 
@@ -113,7 +113,7 @@ class GithubPopularRepos extends Component {
     switch (apiStatus) {
       case apiStatusConstants.sucess:
         return this.repositoriesListView();
-      case apiStatusConstants.fail:
+      case apiStatusConstants.failure:
         return this.failureView();
       case apiStatusConstants.loading:
         return this.loadingView();
